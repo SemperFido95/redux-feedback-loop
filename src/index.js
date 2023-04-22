@@ -21,6 +21,13 @@ const contentRating = (state = 0, action) => {
     return state;
 }
 
+const supportRating = (state = 0, action) => {
+    if (action.type === 'SET_SUPPORT') {
+        state = action.payload;
+    }
+    return state;
+}
+
 // Store
 
 const storeInstance = createStore(
@@ -28,6 +35,7 @@ const storeInstance = createStore(
         {
             feelingToday,
             contentRating,
+            supportRating
         }
     ), 
     applyMiddleware(logger)

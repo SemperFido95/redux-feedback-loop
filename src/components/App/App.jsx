@@ -6,6 +6,7 @@ import Welcome from '../Welcome/Welcome';
 import Feeling from '../Steps/Feeling';
 import Content from '../Steps/Content';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Support from '../Steps/Support';
 
 function App() {
 
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/content">
           <Content />
+        </Route>
+        <Route exact path="/support">
+          <Support />
         </Route>
       </Router>
 
