@@ -7,7 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 //Reducers
-const feelingToday = (state = 0, action) => {
+const feelingRating = (state = 0, action) => {
     if (action.type === 'SET_FEELING') {
         state = action.payload;
     }
@@ -28,8 +28,8 @@ const supportRating = (state = 0, action) => {
     return state;
 }
 
-const comment = (state = '', action) => {
-    if (action.type === 'SET_COMMENT') {
+const additionalComments = (state = '', action) => {
+    if (action.type === 'SET_COMMENTS') {
         state = action.payload;
     }
     return state;
@@ -40,10 +40,10 @@ const comment = (state = '', action) => {
 const storeInstance = createStore(
     combineReducers(
         {
-            feelingToday,
+            feelingRating,
             contentRating,
             supportRating,
-            comment
+            additionalComments
         }
     ), 
     applyMiddleware(logger)

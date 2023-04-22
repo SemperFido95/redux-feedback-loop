@@ -6,11 +6,11 @@ function Feeling() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const feelingToday = useSelector(store => store.feelingToday);
+    const feelingRating = useSelector(store => store.feelingRating);
 
     const nextPage = event => {
         event.preventDefault();
-        feelingToday > 0 ? history.push('/content') : alert('Please use the scale to select how you are feeling.');
+        feelingRating > 0 ? history.push('/content') : alert('Please use the scale to select how you are feeling.');
     }
 
     const setFeeling = event => {
@@ -34,7 +34,7 @@ function Feeling() {
                 </datalist>
                 <input type="submit" value="next" />
             </form>
-            <p>{feelingToday}</p>
+            <p>{feelingRating}</p>
         </>
     )
 }
