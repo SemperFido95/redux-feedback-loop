@@ -11,10 +11,23 @@ router.get('/', (req, res) => {
     }).catch(error => {
         console.log(`Error in GET ${error}`);
         res.sendStatus(500);
-    })
+    });
 })
 
-
-
+router.post('/', (req, res) => {
+    console.log('in POST request');
+    const data = req.body;
+    const queryText = 
+        `
+        INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+        VALUES ($1, $2, $3, $4)
+        `;
+    pool.query(queryText, [data.feeling, data.understanding, data.support, data.comments]).then(result => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log(`Error in POST ${error}`);
+        res.sendStatus(500);
+    });
+})
 
 module.exports = router;
