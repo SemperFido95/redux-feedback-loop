@@ -65,3 +65,7 @@ footer {
   left: 0;
   margin: 20px;
 }
+
+.MuiBox-root p {
+  margin: 0 20px;
+}
