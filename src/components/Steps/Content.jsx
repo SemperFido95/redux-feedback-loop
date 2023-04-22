@@ -5,15 +5,15 @@ function Content() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const feelingToday = useSelector(store => store.feelingToday);
+    const contentRating = useSelector(store => store.contentRating);
 
     const nextPage = event => {
         event.preventDefault();
-        feelingToday > 0 ? history.push('/content') : alert('Please use the scale to select how you are feeling.');
+        contentRating > 0 ? history.push('/support') : alert('Please use the scale to select how well you feel you understand the content.');
     }
 
-    const setFeeling = event => {
-        dispatch({ type: 'SET_FEELING', payload: event.target.value });
+    const setContent = event => {
+        dispatch({ type: 'SET_CONTENT', payload: event.target.value });
     }
 
     return (
@@ -24,7 +24,7 @@ function Content() {
             <form onSubmit={nextPage}>
                 {/* <label htmlFor="feeling">Feeling</label>
                 <br /> */}
-                <input onChange={setFeeling} type="range" defaultValue="1" id="feeling" min="1" max="5" list="markers" />
+                <input onChange={setContent} type="range" defaultValue="1" id="feeling" min="1" max="5" list="markers" />
                 <datalist id="markers">
                     <option label="1" value="1"></option>
                     <option label="2" value="2"></option>
@@ -34,7 +34,7 @@ function Content() {
                 </datalist>
                 <input type="submit" value="next" />
             </form>
-            <p>{feelingToday}</p>
+            <p>{contentRating}</p>
         </>
     )
 }

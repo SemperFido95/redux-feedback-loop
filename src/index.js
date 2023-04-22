@@ -14,6 +14,12 @@ const feelingToday = (state = 0, action) => {
     return state;
 }
 
+const contentRating = (state = 0, action) => {
+    if (action.type === 'SET_CONTENT') {
+        state = action.payload;
+    }
+    return state;
+}
 
 // Store
 
@@ -21,6 +27,7 @@ const storeInstance = createStore(
     combineReducers(
         {
             feelingToday,
+            contentRating,
         }
     ), 
     applyMiddleware(logger)
