@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-
-function Feeling() {
+function Content() {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -19,8 +18,9 @@ function Feeling() {
 
     return (
         <>
-            <h2>How Are You Feeling?</h2>
-            <p>Use the slider to select how you are feeling today, with 1 being the worst and 5 being the best:</p>
+            <h2>How Well Do You Understand The Content?</h2>
+            <p>Use the slider to select how well you feel your understanding is of the content we have learned so far,</p>
+            <p>with 1 being the worst understanding, and 5 being the best:</p>
             <form onSubmit={nextPage}>
                 {/* <label htmlFor="feeling">Feeling</label>
                 <br /> */}
@@ -39,4 +39,4 @@ function Feeling() {
     )
 }
 
-export default Feeling;
+export default Content;
