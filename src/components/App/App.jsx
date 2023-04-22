@@ -10,6 +10,7 @@ import Support from '../Steps/Support';
 import Comment from '../Steps/Comment';
 import Review from '../Steps/Review';
 import Success from '../Steps/Success';
+import Footer from '../Footer/Footer';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/success">
           <Success />
         </Route>
+        <Footer />
       </Router>
     </div>
   );
