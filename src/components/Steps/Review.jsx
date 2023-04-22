@@ -11,8 +11,22 @@ function Review() {
     const comments = useSelector(store => store.additionalComments);
 
     const submitFeedback = () => {
-
+        const feedbackData = {
+            feeling,
+            understanding,
+            support,
+            comments
+        }
+        axios.post('/feedback', feedbackData).then(response => {
+            console.log(response);
+            history.push('/success');
+            dispatch({ type: 'CLEAR_REDUCERS' });
+        }).catch(error => {
+            console.log(`Error in POST ${error}`);
+            alert('Something went wrong.');
+        })
     }
+
     
     return (
         <>

@@ -10,6 +10,8 @@ import logger from 'redux-logger';
 const feelingRating = (state = 0, action) => {
     if (action.type === 'SET_FEELING') {
         state = action.payload;
+    } else if (action.type === 'CLEAR_REDUCERS') {
+        state = 0;
     }
     return state;
 }
@@ -17,6 +19,8 @@ const feelingRating = (state = 0, action) => {
 const contentRating = (state = 0, action) => {
     if (action.type === 'SET_CONTENT') {
         state = action.payload;
+    } else if (action.type === 'CLEAR_REDUCERS') {
+        state = 0;
     }
     return state;
 }
@@ -24,6 +28,8 @@ const contentRating = (state = 0, action) => {
 const supportRating = (state = 0, action) => {
     if (action.type === 'SET_SUPPORT') {
         state = action.payload;
+    } else if (action.type === 'CLEAR_REDUCERS') {
+        state = 0;
     }
     return state;
 }
@@ -31,6 +37,8 @@ const supportRating = (state = 0, action) => {
 const additionalComments = (state = '', action) => {
     if (action.type === 'SET_COMMENTS') {
         state = action.payload;
+    } else if (action.type === 'CLEAR_REDUCERS') {
+        state = '';
     }
     return state;
 }
