@@ -28,6 +28,13 @@ const supportRating = (state = 0, action) => {
     return state;
 }
 
+const comment = (state = '', action) => {
+    if (action.type === 'SET_COMMENT') {
+        state = action.payload;
+    }
+    return state;
+}
+
 // Store
 
 const storeInstance = createStore(
@@ -35,7 +42,8 @@ const storeInstance = createStore(
         {
             feelingToday,
             contentRating,
-            supportRating
+            supportRating,
+            comment
         }
     ), 
     applyMiddleware(logger)

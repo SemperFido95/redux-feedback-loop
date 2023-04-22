@@ -7,6 +7,7 @@ import Feeling from '../Steps/Feeling';
 import Content from '../Steps/Content';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Support from '../Steps/Support';
+import Comment from '../Steps/Comment';
 
 function App() {
 
@@ -26,8 +27,10 @@ function App() {
         <Route exact path="/support">
           <Support />
         </Route>
+        <Route exact path="/comment">
+          <Comment />
+        </Route>
       </Router>
-
     </div>
   );
 }
