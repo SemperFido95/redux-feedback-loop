@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Header from '../Header';
@@ -11,6 +10,7 @@ import Comment from '../Steps/Comment';
 import Review from '../Steps/Review';
 import Success from '../Steps/Success';
 import Footer from '../Footer/Footer';
+import Admin from '../Admin/Admin';
 
 function App() {
 
@@ -39,7 +39,10 @@ function App() {
         <Route exact path="/success">
           <Success />
         </Route>
-        <Footer />
+        <Route exact path={"/admin"}>
+          <Admin />
+        </Route>
+        {/* <Footer /> */}
       </Router>
     </div>
   );

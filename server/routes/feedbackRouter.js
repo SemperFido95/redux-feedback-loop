@@ -5,7 +5,15 @@ const pool = require('../modules/pool');
 // get
 router.get('/', (req, res) => {
     console.log('in GET request');
-    const queryText = 'SELECT * FROM feedback ORDER BY id';
+    const queryText = `SELECT id, 
+        feeling, 
+        understanding, 
+        support, 
+        comments, 
+        flagged,
+        to_char("date", 'mm/dd/yyyy') as "date" 
+        FROM feedback 
+        ORDER BY id`;
     pool.query(queryText).then(result => {
         res.send(result.rows);        
     }).catch(error => {
