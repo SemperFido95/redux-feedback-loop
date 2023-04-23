@@ -46,7 +46,7 @@ function Feeling() {
         <div>
             <h2>How Are You Feeling?</h2>
             <Box sx={{  width: '50%', margin: '0 auto', display: 'flex' }}>
-                <p>No understanding</p>
+                <p>Terrible</p>
                 <Slider
                     onChange={setFeeling}
                     min={1}
@@ -58,7 +58,7 @@ function Feeling() {
                     valueLabelDisplay="auto"
                     marks={marks}
                 />
-                <p>Perfect Understanding</p>
+                <p>Amazing</p>
             </Box>
             <p>Your selected rating: {feelingRating}</p>
             <Button sx={{position: 'absolute', bottom: '10vh', right: 0, margin: '20px'}} className="next-btn" onClick={nextPage} size="large" variant="contained" endIcon={<NavigateNextIcon />}>Next</Button>
