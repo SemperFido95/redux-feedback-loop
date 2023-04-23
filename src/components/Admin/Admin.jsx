@@ -6,16 +6,15 @@ import { Checkbox } from "@mui/material";
 
 function Admin() {
     const [submissions, setSubmissions] = useState([]);
-    const [checked, setChecked] = useState(false);
     const [checkedState, setCheckedState] = useState(
         new Array(submissions.length).fill(false)
     )
 
-    const handleOnChange = (position) => {
+    const handleOnChange = position => {
         const updatedCheckedState = checkedState.map((item, index) =>
             index === position ? !item : item
         );
-        setChecked(updatedCheckedState);
+        setCheckedState(updatedCheckedState);
     }
 
 
@@ -61,7 +60,7 @@ function Admin() {
                                     <TableCell>{submission.comments}</TableCell>
                                     <TableCell>
                                         <Checkbox
-                                            checked={checked[i]}
+                                            checked={checkedState[i]}
                                             onChange={() => handleOnChange(i)}
                                         />
                                     </TableCell>
