@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Box, Button, TextField } from "@mui/material";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Comment() {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function Comment() {
         //         <button className="next-btn" onClick={nextPage}>Review</button>
         //     </>
         <div>
+            <ProgressBar currentStep={3} />
             <h2>Additional Comments (optional)</h2>
             <Box
                 component="form"

@@ -6,7 +6,7 @@
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #1769aa;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -47,7 +47,7 @@ input[type="range"] {
 footer {
   position: absolute;
   bottom: 0;
-  background-color: #033076;
+  background-color: #1769aa;
   width: 100%;
   height: 10vh;
 }
@@ -68,4 +68,8 @@ footer {
 
 .MuiBox-root p {
   margin: 0 20px;
+}
+
+.MuiListItemText-root {
+  text-align: center;
 }

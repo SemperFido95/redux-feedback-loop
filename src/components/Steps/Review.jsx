@@ -1,6 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import { Box } from "@mui/material";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Review() {
     const dispatch = useDispatch();
@@ -27,17 +35,44 @@ function Review() {
         })
     }
 
-    
+
     return (
         <>
+            <ProgressBar currentStep={4} />
             <h2>Review Your Feedback</h2>
-            <ul style={{listStyle: 'none', padding: 0}}>
+            {/* <ul style={{listStyle: 'none', padding: 0}}>
                 <li>Feeling: {feeling}</li>
                 <li>Understanding: {understanding}</li>
                 <li>Support: {support}</li>
                 <li>Comments: {comments}</li>
-            </ul>
-            <button onClick={submitFeedback}>Submit</button>
+            </ul> */}
+            <Box sx={{ bgcolor: 'background.paper ', width: '50%', margin: '0 auto', border: '1px solid black', marginBottom: '20px'}}>
+                <List>
+                    <ListItem>
+                        <ListItemText>Feeling: {feeling}</ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>Understanding: {understanding}</ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>Support: {support}</ListItemText>
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>Comments: {comments}</ListItemText>
+                    </ListItem>
+                </List>
+            </Box>
+
+            <Button
+                size="large"
+                variant="contained"
+                color="success"
+                onClick={submitFeedback}
+                endIcon={<SendIcon />}
+            >
+                Submit
+            </Button>
+            {/* <button onClick={submitFeedback}>Submit</button> */}
         </>
     )
 }

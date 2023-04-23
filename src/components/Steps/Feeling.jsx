@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Slider, Box, Button } from "@mui/material";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Feeling() {
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function Feeling() {
 
     return (
         <div>
+            <ProgressBar currentStep={0}/>
             <h2>How Are You Feeling?</h2>
             <Box sx={{  width: '50%', margin: '0 auto', display: 'flex' }}>
                 <p>Terrible</p>

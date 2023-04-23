@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Slider, Box, Button } from "@mui/material";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Content() {
     const dispatch = useDispatch();
@@ -49,6 +50,7 @@ function Content() {
     return (
 
         <div>
+            <ProgressBar currentStep={1}/>
             <h2>How Well Do You Understand The Content?</h2>
             <Box sx={{ width: '50%', margin: '0 auto', display: 'flex' }}>
                 <p>No understanding</p>

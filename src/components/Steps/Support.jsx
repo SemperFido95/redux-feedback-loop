@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Slider, Box, Button } from "@mui/material";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 function Support() {
     const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function Support() {
 
     return (
         <div>
+            <ProgressBar currentStep={2}/>
             <h2>How Well Are You Being Supported?</h2>
             <Box sx={{ width: '50%', margin: '0 auto', display: 'flex' }}>
                 <p>Terrible Support</p>
