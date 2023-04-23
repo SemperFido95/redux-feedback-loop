@@ -5,10 +5,12 @@ import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import { Box } from "@mui/material";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import EditIcon from '@mui/icons-material/Edit';
+import{ IconButton, Grid } from "@mui/material";
+import { useState } from "react";
 
 function Review() {
     const dispatch = useDispatch();
@@ -17,6 +19,7 @@ function Review() {
     const understanding = useSelector(store => store.contentRating);
     const support = useSelector(store => store.supportRating);
     const comments = useSelector(store => store.additionalComments);
+    const [page, setPage] = useState('');
 
     const submitFeedback = () => {
         const feedbackData = {
@@ -35,7 +38,6 @@ function Review() {
         })
     }
 
-
     return (
         <>
             <ProgressBar currentStep={4} />
@@ -46,22 +48,38 @@ function Review() {
                 <li>Support: {support}</li>
                 <li>Comments: {comments}</li>
             </ul> */}
-            <Box sx={{ bgcolor: 'background.paper ', width: '50%', margin: '0 auto', border: '1px solid black', marginBottom: '20px'}}>
-                <List>
-                    <ListItem>
-                        <ListItemText>Feeling: {feeling}</ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>Understanding: {understanding}</ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>Support: {support}</ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>Comments: {comments}</ListItemText>
-                    </ListItem>
-                </List>
-            </Box>
+            <Box id="review" sx={{ bgcolor: 'background.paper ', width: '50%', margin: '0 auto', border: '1px solid black', marginBottom: '20px' }}>
+                <Grid container >
+                    <Grid item md={4}>
+                        <List>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/feeling')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Feeling: {feeling}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/understanding')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Understanding: {understanding}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/support')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Support: {support}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/comments')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Comments: {comments}</ListItemText>
+                            </ListItem>
+                        </List>
+                    </Grid>
+                </Grid>
+            </Box >
 
             <Button
                 size="large"
@@ -72,7 +90,6 @@ function Review() {
             >
                 Submit
             </Button>
-            {/* <button onClick={submitFeedback}>Submit</button> */}
         </>
     )
 }

@@ -18,14 +18,6 @@ function Comment() {
     const previousPage = () => history.push('/support');
 
     return (
-        //     <>
-        //         
-        //         <p>Please leave any additonal comments below:</p>
-        //         <textarea id="comment" rows="4" cols="50" onChange={setComments} />
-
-        //         <button className="back-btn" onClick={previousPage}>Back</button>
-        //         <button className="next-btn" onClick={nextPage}>Review</button>
-        //     </>
         <div>
             <ProgressBar currentStep={3} />
             <h2>Additional Comments (optional)</h2>

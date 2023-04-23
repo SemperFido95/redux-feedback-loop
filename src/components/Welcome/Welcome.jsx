@@ -12,10 +12,10 @@ function Welcome() {
     return (
         <>
             <h1>Welcome</h1>
-            <p>This is a feedback survery for how your day went today. This survey is 5 questions and should take less than 5 minutes to complete.</p>
+            <p>This survey is 5 questions and should take less than 5 minutes to complete. </p>
+            <p>This survey is anonymous, so please answer the questions to the best of your ability.</p>
             <p>You may submit as many surveys as you would like! Click the button below to begin.</p>
             <Button color="success" size="large" variant="contained" onClick={nextPage} endIcon={<StartIcon />}>Start</Button>
-            {/* <button onClick={nextPage}>Begin Survey</button> */}
         </>
     )
 }
