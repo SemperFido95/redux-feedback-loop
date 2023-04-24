@@ -9,7 +9,6 @@ import Support from '../Steps/Support';
 import Comment from '../Steps/Comment';
 import Review from '../Steps/Review';
 import Success from '../Steps/Success';
-import Footer from '../Footer/Footer';
 import Admin from '../Admin/Admin';
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
         <Route exact path="/">
           <Welcome />
         </Route>
-        <Route exact path={"/feeling"}>
+        <Route exact path="/feeling">
           <Feeling />
         </Route>
         <Route exact path="/content">
@@ -39,10 +38,9 @@ function App() {
         <Route exact path="/success">
           <Success />
         </Route>
-        <Route exact path={"/admin"}>
+        <Route exact path="/admin">
           <Admin />
         </Route>
-        {/* <Footer /> */}
       </Router>
     </div>
   );
