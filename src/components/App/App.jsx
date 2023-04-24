@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className='App'>
+      {/* Using React Router to navigate between components */}
       <Router>
         <Header />
         <Route exact path="/">

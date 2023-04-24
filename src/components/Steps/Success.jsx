@@ -12,7 +12,6 @@ function Success() {
             <p>If you would like to submit another response, click the button below.</p>
             <p>Otherwise, you may close this page.</p>
             <Button onClick={home} variant="contained" size="large" startIcon={<NorthWestIcon />}>Back to Start</Button>
-            {/* <button onClick={home}>Submit Another Response</button> */}
         </>
     )
 }

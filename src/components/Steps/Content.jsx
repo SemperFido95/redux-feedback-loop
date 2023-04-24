@@ -22,6 +22,7 @@ function Content() {
         dispatch({ type: 'SET_CONTENT', payload: event.target.value });
     }
 
+    // tick marks for slider
     const marks = [
         {
             value: 1,
@@ -45,6 +46,7 @@ function Content() {
         }
     ];
 
+    // label for each slider tick mark
     const valueText = value => `${value}`;
 
     return (

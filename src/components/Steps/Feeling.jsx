@@ -18,6 +18,7 @@ function Feeling() {
         dispatch({ type: 'SET_FEELING', payload: event.target.value });
     }
 
+    // tick marks for slider
     const marks = [
         {
             value: 1,
@@ -41,6 +42,7 @@ function Feeling() {
         }
     ];
 
+    // labels for each tick mark
     const valueText = value => `${value}`
 
     return (

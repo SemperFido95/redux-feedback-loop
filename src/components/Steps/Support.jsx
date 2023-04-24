@@ -21,6 +21,7 @@ function Support() {
         dispatch({ type: 'SET_SUPPORT', payload: event.target.value });
     }
 
+    // tick marks for slider
     const marks = [
         {
             value: 1,
@@ -44,6 +45,7 @@ function Support() {
         }
     ];
 
+    // labels for tick marks
     const valueText = value => `${value}`;
 
     return (

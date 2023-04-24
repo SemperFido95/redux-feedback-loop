@@ -20,7 +20,9 @@ function Admin() {
     const [snackOpen, setSnackOpen] = useState(false);
     const [id, setId] = useState(0);
 
+    // control opening and closing of dialog
     const handleDialogOpen = (id) => {
+        // get id of response to delete
         setId(id);
         setDialogOpen(true);
     };
@@ -29,6 +31,7 @@ function Admin() {
         setDialogOpen(false);
     };
 
+    // control opening and closing of snackbar
     const handleSnackOpen = () => {
         setSnackOpen(true);
     };
@@ -41,6 +44,7 @@ function Admin() {
         setSnackOpen(false);
     };
 
+    // snackbar action
     const action = (
         <Fragment>
             <IconButton
@@ -54,6 +58,7 @@ function Admin() {
         </Fragment>
     );
 
+    // change state of checkbox and update flag in database
     const handleOnChange = (event, id) => {
         let checkedState = event.target.checked;
         axios.post(`/feedback/${id}`, { checked: checkedState }).then(response => {
@@ -65,6 +70,7 @@ function Admin() {
         })
     }
 
+    // get feedback responses from database
     const getFeedback = () => {
         axios.get('/feedback').then(response => {
             setSubmissions(response.data);
@@ -75,6 +81,7 @@ function Admin() {
         })
     }
 
+    // delete response from database
     const deleteSubmission = () => {
         axios.delete(`/feedback/${id}`).then(response => {
             console.log(response);
@@ -87,6 +94,7 @@ function Admin() {
         })
     }
 
+    // call getFeeback() on page load 
     useEffect(() => {
         getFeedback();
     }, [])
@@ -94,6 +102,7 @@ function Admin() {
     return (
         <Container>
             <h2>Admin</h2>
+            {/* MUI Table */}
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -111,7 +120,7 @@ function Admin() {
                     </TableHead>
                     <TableBody>
                         {
-                            submissions.map((submission, i) => (
+                            submissions.map((submission) => (
                                 <TableRow key={submission.id}>
                                     <TableCell>{submission.id}</TableCell>
                                     <TableCell>{submission.feeling}</TableCell>
@@ -137,6 +146,7 @@ function Admin() {
                     </TableBody>
                 </Table>
             </TableContainer>
+            {/* Contents of dialog box */}
             <Dialog
                 open={dialogOpen}
                 onClose={handleDialogClose}
@@ -160,6 +170,7 @@ function Admin() {
                     </Button>
                 </DialogActions>
             </Dialog>
+            {/* Contents of Snackbar */}
             <Snackbar
                 open={snackOpen}
                 autoHideDuration={6000}

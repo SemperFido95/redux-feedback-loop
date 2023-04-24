@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
     });
 })
 
+// post responses
 router.post('/', (req, res) => {
     console.log('in POST request');
     const data = req.body;
@@ -38,6 +39,7 @@ router.post('/', (req, res) => {
     });
 })
 
+// update flag
 router.post('/:id', (req, res) => {
     const id = req.params.id;
     const checked = req.body.checked;
@@ -50,6 +52,7 @@ router.post('/:id', (req, res) => {
     });
 });
 
+// delete a response
 router.delete('/:id', (req, res) => {
     const id = req.params.id;
     const queryText = 'DELETE FROM feedback WHERE id = $1;';

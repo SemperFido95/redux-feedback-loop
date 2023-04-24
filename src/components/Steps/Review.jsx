@@ -10,7 +10,6 @@ import { Box } from "@mui/material";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import EditIcon from '@mui/icons-material/Edit';
 import{ IconButton, Grid } from "@mui/material";
-import { useState } from "react";
 
 function Review() {
     const dispatch = useDispatch();
@@ -19,9 +18,10 @@ function Review() {
     const understanding = useSelector(store => store.contentRating);
     const support = useSelector(store => store.supportRating);
     const comments = useSelector(store => store.additionalComments);
-    const [page, setPage] = useState('');
 
+    // Submit responses to database
     const submitFeedback = () => {
+        // creating object of feeback responses
         const feedbackData = {
             feeling,
             understanding,
@@ -31,6 +31,7 @@ function Review() {
         axios.post('/feedback', feedbackData).then(response => {
             console.log(response);
             history.push('/success');
+            // clear responses after submission
             dispatch({ type: 'CLEAR_REDUCERS' });
         }).catch(error => {
             console.log(`Error in POST ${error}`);
@@ -42,12 +43,6 @@ function Review() {
         <>
             <ProgressBar currentStep={4} />
             <h2>Review Your Feedback</h2>
-            {/* <ul style={{listStyle: 'none', padding: 0}}>
-                <li>Feeling: {feeling}</li>
-                <li>Understanding: {understanding}</li>
-                <li>Support: {support}</li>
-                <li>Comments: {comments}</li>
-            </ul> */}
             <Box id="review" sx={{ bgcolor: 'background.paper ', width: '50%', margin: '0 auto', border: '1px solid black', marginBottom: '20px' }}>
                 <Grid container >
                     <Grid item md={4}>
