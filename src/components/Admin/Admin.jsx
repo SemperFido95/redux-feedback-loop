@@ -3,6 +3,8 @@ import { Container, TableContainer, Table } from "@mui/material";
 import { TableCell, TableHead, TableBody, TableRow } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Checkbox } from "@mui/material";
+import { IconButton }from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function Admin() {
     const [submissions, setSubmissions] = useState([]);
@@ -28,6 +30,16 @@ function Admin() {
         })
     }
 
+    const deleteSubmission = (id) => {
+        axios.delete(`/feedback/${id}`).then(response => {
+            console.log(response);
+            getFeedback();
+        }).catch(error => {
+            console.log(`Error in DELETE ${error}`);
+            alert('Something went wrong.');
+        })
+    }
+
     useEffect(() => {
         getFeedback();
     }, [])
@@ -47,6 +59,7 @@ function Admin() {
                             <TableCell>Flag For Review</TableCell>
                             <TableCell>Flagged</TableCell>
                             <TableCell>Date Submitted</TableCell>
+                            <TableCell>Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -66,6 +79,11 @@ function Admin() {
                                     </TableCell>
                                     <TableCell>{submission.flagged.toString()}</TableCell>
                                     <TableCell>{submission.date}</TableCell>
+                                    <TableCell>
+                                        <IconButton onClick={() => deleteSubmission(submission.id)}>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             ))
                         }

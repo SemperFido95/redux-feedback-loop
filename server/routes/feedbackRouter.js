@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     const queryText = 
         `
         INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-        VALUES ($1, $2, $3, $4)
+        VALUES ($1, $2, $3, $4);
         `;
     pool.query(queryText, [data.feeling, data.understanding, data.support, data.comments]).then(result => {
         res.sendStatus(200);
@@ -41,13 +41,24 @@ router.post('/', (req, res) => {
 router.post('/:id', (req, res) => {
     const id = req.params.id;
     const checked = req.body.checked;
-    const queryText = 'UPDATE feedback SET flagged = $1 WHERE id = $2';
+    const queryText = 'UPDATE feedback SET flagged = $1 WHERE id = $2;';
     pool.query(queryText, [checked, id]).then(result => {
         res.sendStatus(200);
     }).catch(error => {
         console.log(`Error in POST ${error}`);
         res.sendStatus(500);
-    })
-})
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    const queryText = 'DELETE FROM feedback WHERE id = $1;';
+    pool.query(queryText, [id]).then(result => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log(`Error in DELETE ${error}`);
+        res.sendStatus(500);
+    });
+});
 
 module.exports = router;
