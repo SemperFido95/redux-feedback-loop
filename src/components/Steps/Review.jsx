@@ -1,6 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { Button } from "@mui/material";
+import SendIcon from '@mui/icons-material/Send';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import { Box } from "@mui/material";
+import ProgressBar from "../ProgressBar/ProgressBar";
+import EditIcon from '@mui/icons-material/Edit';
+import{ IconButton, Grid } from "@mui/material";
+import { useState } from "react";
 
 function Review() {
     const dispatch = useDispatch();
@@ -9,6 +19,7 @@ function Review() {
     const understanding = useSelector(store => store.contentRating);
     const support = useSelector(store => store.supportRating);
     const comments = useSelector(store => store.additionalComments);
+    const [page, setPage] = useState('');
 
     const submitFeedback = () => {
         const feedbackData = {
@@ -27,17 +38,58 @@ function Review() {
         })
     }
 
-    
     return (
         <>
+            <ProgressBar currentStep={4} />
             <h2>Review Your Feedback</h2>
-            <ul style={{listStyle: 'none', padding: 0}}>
+            {/* <ul style={{listStyle: 'none', padding: 0}}>
                 <li>Feeling: {feeling}</li>
                 <li>Understanding: {understanding}</li>
                 <li>Support: {support}</li>
                 <li>Comments: {comments}</li>
-            </ul>
-            <button onClick={submitFeedback}>Submit</button>
+            </ul> */}
+            <Box id="review" sx={{ bgcolor: 'background.paper ', width: '50%', margin: '0 auto', border: '1px solid black', marginBottom: '20px' }}>
+                <Grid container >
+                    <Grid item md={4}>
+                        <List>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/feeling')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Feeling: {feeling}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/understanding')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Understanding: {understanding}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/support')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Support: {support}</ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <IconButton onClick={() => history.push('/comments')}>
+                                    <EditIcon fontSize="small" />
+                                </IconButton>
+                                <ListItemText>Comments: {comments}</ListItemText>
+                            </ListItem>
+                        </List>
+                    </Grid>
+                </Grid>
+            </Box >
+
+            <Button
+                size="large"
+                variant="contained"
+                color="success"
+                onClick={submitFeedback}
+                endIcon={<SendIcon />}
+            >
+                Submit
+            </Button>
         </>
     )
 }

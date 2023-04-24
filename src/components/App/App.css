@@ -1,9 +1,12 @@
 .App {
   text-align: center;
+  height: 90vh;
+  position: relative;
+  padding-bottom: 10vh;
 }
 
 .App-header {
-  background-color: #033076;
+  background-color: #1769aa;
   min-height: 70px;
   padding: 20px;
   color: white;
@@ -39,4 +42,39 @@ input[type="range"] {
 
 #markers {
   margin: 0 auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #1769aa;
+  width: 100%;
+  height: 10vh;
+}
+
+.next-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.back-btn{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 20px;
+}
+
+.MuiBox-root p {
+  margin: 0 20px;
+}
+
+.MuiListItemText-root {
+  text-align: left;
+}
+
+#review {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none !important;
 }
