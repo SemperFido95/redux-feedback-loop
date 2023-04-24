@@ -12,7 +12,7 @@ function Support() {
     const supportRating = useSelector(store => store.supportRating);
 
     const nextPage = () => {
-        supportRating > 0 ? history.push('/comment') : alert('Please use the slider below.');
+        supportRating > 0 ? history.push('/comments') : alert('Please use the slider below.');
     }
 
     const previousPage = () => history.push('/content');
