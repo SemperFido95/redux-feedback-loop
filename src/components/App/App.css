@@ -54,14 +54,14 @@ footer {
 
 .next-btn {
   position: absolute;
-  bottom: 10vh;
+  bottom: 0;
   right: 0;
   margin: 20px;
 }
 
 .back-btn{
   position: absolute;
-  bottom: 10vh;
+  bottom: 0;
   left: 0;
   margin: 20px;
 }

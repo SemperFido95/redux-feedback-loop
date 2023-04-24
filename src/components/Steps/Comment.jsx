@@ -37,7 +37,7 @@ function Comment() {
                 />
             </Box>
             <Button
-                sx={{ position: 'absolute', bottom: '10vh', left: 0, margin: '20px' }}
+                sx={{ position: 'absolute', bottom: 0, left: 0, margin: '20px' }}
                 onClick={previousPage}
                 size="large"
                 variant="contained"
@@ -46,7 +46,7 @@ function Comment() {
                 Back
             </Button>
             <Button
-                sx={{ position: 'absolute', bottom: '10vh', right: 0, margin: '20px' }}
+                sx={{ position: 'absolute', bottom: 0, right: 0, margin: '20px' }}
                 className="next-btn"
                 onClick={nextPage}
                 size="large"

@@ -63,7 +63,7 @@ function Feeling() {
                 <p>Amazing</p>
             </Box>
             <p>Your selected rating: {feelingRating}</p>
-            <Button sx={{position: 'absolute', bottom: '10vh', right: 0, margin: '20px'}} className="next-btn" onClick={nextPage} size="large" variant="contained" endIcon={<NavigateNextIcon />}>Next</Button>
+            <Button sx={{position: 'absolute', bottom: 0, right: 0, margin: '20px'}} className="next-btn" onClick={nextPage} size="large" variant="contained" endIcon={<NavigateNextIcon />}>Next</Button>
         </div>
     )
 }

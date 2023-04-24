@@ -149,7 +149,7 @@ function Admin() {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         This action cannot be undone. If you wish to proceed,
-                        select 'Delete' below. Otherwise, select 'cancel' to
+                        select 'Delete' below. Otherwise, select 'Cancel' to
                         go back to the admin center.
                     </DialogContentText>
                 </DialogContent>
