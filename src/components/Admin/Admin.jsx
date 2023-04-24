@@ -6,17 +6,17 @@ import { Checkbox } from "@mui/material";
 
 function Admin() {
     const [submissions, setSubmissions] = useState([]);
-    const [checkedState, setCheckedState] = useState(
-        new Array(submissions.length).fill(false)
-    )
 
-    const handleOnChange = position => {
-        const updatedCheckedState = checkedState.map((item, index) =>
-            index === position ? !item : item
-        );
-        setCheckedState(updatedCheckedState);
+    const handleOnChange = (event, id) => {
+        let checkedState = event.target.checked;
+        axios.post(`/feedback/${id}`, { checked: checkedState }).then(response => {
+            getFeedback();
+            console.log(response);
+        }).catch(error => {
+            console.log(`Error in POST ${error}`);
+            alert('Something went wrong.');
+        })
     }
-
 
     const getFeedback = () => {
         axios.get('/feedback').then(response => {
@@ -60,8 +60,8 @@ function Admin() {
                                     <TableCell>{submission.comments}</TableCell>
                                     <TableCell>
                                         <Checkbox
-                                            checked={checkedState[i]}
-                                            onChange={() => handleOnChange(i)}
+                                            defaultChecked={submission.flagged}
+                                            onChange={event => handleOnChange(event, submission.id)}
                                         />
                                     </TableCell>
                                     <TableCell>{submission.flagged.toString()}</TableCell>

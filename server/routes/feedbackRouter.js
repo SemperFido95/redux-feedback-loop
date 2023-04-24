@@ -38,4 +38,16 @@ router.post('/', (req, res) => {
     });
 })
 
+router.post('/:id', (req, res) => {
+    const id = req.params.id;
+    const checked = req.body.checked;
+    const queryText = 'UPDATE feedback SET flagged = $1 WHERE id = $2';
+    pool.query(queryText, [checked, id]).then(result => {
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log(`Error in POST ${error}`);
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;
