@@ -29,7 +29,7 @@ function App() {
         <Route exact path="/support">
           <Support />
         </Route>
-        <Route exact path="/comment">
+        <Route exact path="/comments">
           <Comment />
         </Route>
         <Route exact path="/review">
